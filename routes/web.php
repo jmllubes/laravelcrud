@@ -29,3 +29,22 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+ 
+// Rutas CRUD
+/* Crear */
+Route::get('admin/productos/crear', 'App\Http\Controllers\ProductoController@create')->name('admin/productos/crear');
+Route::put('admin/productos/store', 'App\Http\Controllers\ProductoController@store')->name('admin/productos/store');
+ 
+/* Leer */ 
+Route::get('admin/productos/show/{id}', 'App\Http\Controllers\ProductoController@show')->name('admin/productos/detalles'); 
+ 
+/* Actualizar */
+Route::get('admin/productos/actualizar/{id}', 'App\Http\Controllers\ProductoController@actualizar')->name('admin/productos/actualizar');
+Route::put('admin/productos/update/{id}', 'App\Http\Controllers\ProductoController@update')->name('admin/productos/update');
+ 
+/* Eliminar */
+Route::put('admin/productos/eliminar/{id}', 'App\Http\Controllers\ProductoController@eliminar')->name('admin/productos/eliminar'); 
+ 
+/* Vista Principal */
+Route::get('admin/productos', 'App\Http\Controllers\ProductoController@index')->name('admin/productos');
+ 
